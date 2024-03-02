@@ -8,18 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingAlert = false
+    
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                Color.orange
-                Color.green
+//        LinearGradient(colors: [.orange, .white, .green], startPoint: .top, endPoint: .center)
+//        RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
+//        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
+        VStack {
+            Text("Gradient")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .foregroundColor(.white)
+                .background(.blue.gradient)
+            Button("Show alert") {
+                isShowingAlert.toggle()
             }
-            Text("India")
-                .padding(50)
-                .foregroundColor(.secondary)
-                .background(.ultraThinMaterial)
         }
-        .ignoresSafeArea()
+        .alert("Some alert message", isPresented: $isShowingAlert) {
+            Button("Delete", role: .destructive){}
+            Button("Cancel", role: .cancel){}
+            Button("Cancel"){}
+            Button("Cancel"){}
+            Button("Cancel"){}
+            Button("Cancel"){}
+
+
+        }
     }
 }
 
