@@ -58,6 +58,8 @@ struct ContentView: View {
         switch (from, to) {
         case (.celsius, .fahrenheit):
             return temperature * (9/5) + 32
+        case (.fahrenheit, .celsius):
+            return (temperature - 32) * 5/9
         default:
             return 0.0
         }
